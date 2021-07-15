@@ -33,14 +33,20 @@ for (var k = 0; k<=100; k = k ) {
   }
 
   //create 3rd row of plinko objects
-
+for (var j = 40; j <=width; j=j+50){
+  plinkos.push(new Plinko(j,75) )
+}
   
   //create 4th row of plinko objects
-
+ for (var j = 40; j <=width-10; j=j+50){
+   plinkos.push(new Plinko(j,175))
+ }
 
   //create particle objects
   
-    
+    if(frameCount%60===0){
+      particles.push(new Particle(random(width/2-10 , width/2+10), 10,10));
+    }
 }
  
 
@@ -63,5 +69,9 @@ function draw() {
   }
 
   //display the paricles 
+  if(frameCount%60===0){
+    particles.push(new Particle(random(width/2-10 , width/2+10), 10,10));
+    particles.display();
+  }
 
 }
